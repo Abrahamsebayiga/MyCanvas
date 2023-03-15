@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Realistic Tree in HTML Canvas</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="600"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      // Set the center of the tree
+      var centerX = canvas.width / 2;
+      var bottomY = canvas.height - 30;
+
+      // Set the size of the tree trunk
+      var trunkWidth = 50;
+      var trunkHeight = 150;
+
+      // Draw the tree trunk
+      ctx.fillStyle = "#8B4513";
+      ctx.fillRect(centerX - trunkWidth / 2, bottomY - trunkHeight, trunkWidth, trunkHeight);
+
+      // Set the size of the tree branches
+      var branchSize = 50;
+
+      // Draw the tree branches
+      ctx.fillStyle = "#008000";
+      ctx.beginPath();
+      ctx.moveTo(centerX, bottomY - trunkHeight - branchSize);
+      ctx.lineTo(centerX + branchSize, bottomY - trunkHeight - branchSize);
+      ctx.lineTo(centerX + branchSize / 2, bottomY - trunkHeight - 2 * branchSize);
+      ctx.lineTo(centerX, bottomY - trunkHeight - branchSize * 2);
+      ctx.lineTo(centerX - branchSize / 2, bottomY - trunkHeight - 2 * branchSize);
+      ctx.lineTo(centerX - branchSize, bottomY - trunkHeight - branchSize);
+      ctx.closePath();
+      ctx.fill();
+
+      // Draw the tree leaves
+      var leafSize = 30;
+
+      ctx.fillStyle = "#228B22";
+      ctx.beginPath();
+      ctx.arc(centerX, bottomY - trunkHeight - 3.5 * branchSize - leafSize, leafSize, 0, 3.5 * Math.PI);
+      ctx.arc(centerX, bottomY - trunkHeight - 2 * branchSize - leafSize, leafSize, 0, 2 * Math.PI);
+      ctx.arc(centerX + branchSize / 2, bottomY - trunkHeight - 2 * branchSize - leafSize / 2, leafSize, 0, 2 * Math.PI);
+      ctx.arc(centerX - branchSize / 2, bottomY - trunkHeight - 2 * branchSize - leafSize / 2, leafSize, 0, 2 * Math.PI);
+      ctx.arc(centerX + branchSize / 3, bottomY - trunkHeight - 3 * branchSize - leafSize / 3, leafSize, 0, 3 * Math.PI);
+      ctx.arc(centerX - branchSize / 3, bottomY - trunkHeight - 3 * branchSize - leafSize / 3, leafSize, 0, 3 * Math.PI);
+      ctx.fill();
+    </script>
+  </body>
+</html>
