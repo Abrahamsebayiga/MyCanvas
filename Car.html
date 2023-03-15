@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Realistic Car</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      // Draw the body of the car
+      ctx.fillStyle = "#2F4F4F";
+      ctx.fillRect(75, 150, 150, 50);
+
+      // Draw the front of the car
+      ctx.fillStyle = "#B22222";
+      ctx.fillRect(225, 150, 25, 50);
+
+      // Draw the windshield of the car
+      ctx.fillStyle = "#BCC000";
+      ctx.beginPath();
+      ctx.moveTo(197.5, 150);
+      ctx.lineTo(222.5, 150);
+      ctx.lineTo(210, 125);
+      ctx.lineTo(197.5, 125);
+      ctx.closePath();
+      ctx.fill();
+
+      // Draw the wheels of the car
+      ctx.fillStyle = "#000000";
+      ctx.beginPath();
+      ctx.arc(110, 200, 25, 0, 2 * Math.PI);
+      ctx.arc(190, 200, 25, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.closePath();
+
+      // Draw the headlights of the car
+      ctx.fillStyle = "#FFFFFF";
+      ctx.beginPath();
+      ctx.arc(215, 165, 5, 0, 2 * Math.PI);
+      ctx.arc(215, 185, 5, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.closePath();
+
+      // Draw the taillights of the car
+      ctx.fillStyle = "#FF0000";
+      ctx.beginPath();
+      ctx.arc(87.5, 165, 5, 0, 2 * Math.PI);
+      ctx.arc(87.5, 185, 5, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.closePath();
+    </script>
+  </body>
+</html>
